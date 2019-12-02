@@ -2,7 +2,7 @@ package main
 
 import "testing"
 
-func TestCalculateFuelConsumption(t *testing.T) {
+func TestCalculateConsumption(t *testing.T) {
 	cases := []struct {
 		in, want int
 	}{
@@ -12,24 +12,25 @@ func TestCalculateFuelConsumption(t *testing.T) {
 		{100756, 33583},
 	}
 	for _, c := range cases {
-		got := calculateFuelConsumption(c.in)
+		got := calculateConsumption(c.in)
 		if got != c.want {
 			t.Errorf("calculateFuelConsumption(%d) == %d, want %d", c.in, got, c.want)
 		}
 	}
 }
 
-func TestCalculateTotalFuelConsumption(t *testing.T) {
+func TestCalculateConsumptionWithExtra(t *testing.T) {
 	cases := []struct {
-		in   []string
-		want int
+		in, want int
 	}{
-		{[]string{"12", "14", "1969", "100756"}, 34241},
+		{14, 2},
+		{1969, 966},
+		{100756, 50346},
 	}
 	for _, c := range cases {
-		got := calculateTotalFuelConsumption(c.in)
+		got := calculateConsumptionWithExtra(c.in)
 		if got != c.want {
-			t.Errorf("calculateTotalFuelConsumption(%v) == %d, want %d", c.in, got, c.want)
+			t.Errorf("calculateExtraFuelConsumption(%d) == %d, want %d", c.in, got, c.want)
 		}
 	}
 }
