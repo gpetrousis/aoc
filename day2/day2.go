@@ -11,13 +11,21 @@ func main() {
 	if err != nil {
 		fmt.Println("File reading error", err)
 	}
-	array := parseInput(input)
+	memory := parseInput(input)
 
-	array[1] = 12
-	array[2] = 2
+	part1memory := make([]int, len(memory))
+	copy(part1memory, memory)
 
-	intcode(array, 0)
+	part1memory[1] = 12
+	part1memory[2] = 2
 
-	fmt.Println("[Part1]", array[0])
-	fmt.Println("[Part2]")
+	intcode(part1memory, 0)
+
+	fmt.Println("[Part1]", part1memory[0])
+	noun, verb, err := calculateNounAndVerb(memory, 19690720)
+	if err != nil {
+		fmt.Println("[Part2] Error", err)
+
+	}
+	fmt.Println("[Part2] 100 *", noun, "+", verb, "=", 100*noun+verb)
 }
