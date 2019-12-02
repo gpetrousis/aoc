@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	masses, err := readfile.ReadFile("input.txt")
+	masses, err := readfile.ReadLines("input.txt")
 	if err != nil {
 		fmt.Println("File reading error", err)
 	}
