@@ -7,6 +7,7 @@ import (
 	readfile "github.com/gpetrousis/aoc2019/readFile"
 )
 
+//TODO: Should refactor the whole solution
 func main() {
 	paths, err := readfile.ReadLines("input.txt")
 	if err != nil {
@@ -27,5 +28,7 @@ func main() {
 	closest := getClosestColision(centralPort, colisions)
 	fmt.Println("[Part1] ", closest, manhatan(closest, centralPort))
 
-	fmt.Println("[Part2] ")
+	shortest := getStepsToShortestColision(centralPort, colisions, wire1path, wire2path)
+
+	fmt.Println("[Part2]", shortest)
 }

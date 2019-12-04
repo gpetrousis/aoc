@@ -57,14 +57,49 @@ func populatePanel(panel []string, wire []string, centralPort Point, panelSize i
 	return colisions
 }
 
-func getClosestColision(centralPanel Point, colisions []Point) Point {
+func getClosestColision(centralPort Point, colisions []Point) Point {
 	closest := colisions[0]
 	for _, colision := range colisions {
-		if manhatan(centralPanel, closest) > manhatan(centralPanel, colision) {
+		if manhatan(centralPort, closest) > manhatan(centralPort, colision) {
 			closest = colision
 		}
 	}
 	return closest
+}
+
+func getStepsToShortestColision(centralPort Point, colisions []Point, path1 []string, path2 []string) int {
+	minSteps := 0
+
+	for _, colision := range colisions {
+		path1steps := getStepsToColision(centralPort, path1, colision)
+		path2steps := getStepsToColision(centralPort, path2, colision)
+		if minSteps == 0 {
+			minSteps = path1steps + path2steps
+		} else {
+			totalSteps := path1steps + path2steps
+			if totalSteps < minSteps {
+				minSteps = totalSteps
+			}
+		}
+	}
+	return minSteps
+}
+
+func getStepsToColision(centralPort Point, path []string, colision Point) int {
+	current := centralPort
+	totalSteps := 0
+	for _, step := range path {
+		direction, steps := parseStep(step)
+		for i := 0; i < steps; i++ {
+			current = nextStep(current, direction)
+			totalSteps++
+			if current == colision {
+				return totalSteps
+			}
+		}
+	}
+	fmt.Println("Cannot find path to colisio")
+	return 0
 }
 
 func printPanel(panel []string, panelSize int) {
