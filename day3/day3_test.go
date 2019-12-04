@@ -4,25 +4,25 @@ import (
 	"testing"
 )
 
-func TestManhatan(t *testing.T) {
-	cases := []struct {
-		ax   int
-		ay   int
-		bx   int
-		by   int
-		want int
-	}{
-		{1, 4, 6, 7, 8},
-		{-1, 4, -6, 7, 8},
-	}
+// func TestManhatan(t *testing.T) {
+// 	cases := []struct {
+// 		ax   int
+// 		ay   int
+// 		bx   int
+// 		by   int
+// 		want int
+// 	}{
+// 		{1, 4, 6, 7, 8},
+// 		{-1, 4, -6, 7, 8},
+// 	}
 
-	for _, c := range cases {
-		got := manhatan(c.ax, c.ay, c.bx, c.by)
-		if got != c.want {
-			t.Errorf("manhatan(%d, %d, %d, %d) == %d want %d", c.ax, c.ay, c.bx, c.by, got, c.want)
-		}
-	}
-}
+// 	for _, c := range cases {
+// 		got := manhatan(c.ax, c.ay, c.bx, c.by)
+// 		if got != c.want {
+// 			t.Errorf("manhatan(%d, %d, %d, %d) == %d want %d", c.ax, c.ay, c.bx, c.by, got, c.want)
+// 		}
+// 	}
+// }
 
 func TestParseStep(t *testing.T) {
 	cases := []struct {
