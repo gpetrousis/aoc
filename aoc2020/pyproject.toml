@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "aoc2020"
+version = "0.1.0"
+description = "Advent of Code (adventofcode.com) project for 2020"
+authors = ["Georgios Petrousis"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/gpetrousis/aoc/aoc2020"
+repository = "https://github.com/gpetrousis/aoc/aoc2020"
+keywords = ["aoc", "adventofcode"]
+
+[tool.poetry.scripts]
+day1 = "aoc2020.day_1:main"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.1.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
