@@ -8,6 +8,7 @@ locations = "src", "tests", "noxfile.py"
 
 
 def install_with_constraints(session, *args, **kwargs):
+    """ Install dev dependencies from poetry """
     with tempfile.NamedTemporaryFile() as requirements:
         session.run(
             "poetry",
