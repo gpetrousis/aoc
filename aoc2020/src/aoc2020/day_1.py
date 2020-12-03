@@ -2,6 +2,7 @@
 import os
 import click
 
+
 def get_sum_two(data, total):
     """ Return a * b if a + b == total, Where a, b are items of the data list """
     for i in range(0, len(data)):
@@ -16,8 +17,12 @@ def get_sum_two(data, total):
 
     return "Sum not found"
 
+
 def get_sum_three(data, total):
-    """ Return a * b * c if a + b + c == total, Where a, b, c are items of the data list """
+    """
+    Return a * b * c if a + b + c == total,
+    where a, b, c are items of the data list
+    """
     for i in range(0, len(data)):
         for j in range(i + 1, len(data)):
             for k in range(j + 1, len(data)):
@@ -31,6 +36,7 @@ def get_sum_three(data, total):
 
     return "Sum not found"
 
+
 def parse_input(input_path):
     """ Parse the input file into an array of integers """
     with open(os.path.abspath(input_path)) as input_file:
@@ -38,8 +44,9 @@ def parse_input(input_path):
 
     return [int(i) for i in input_data]
 
+
 @click.command()
-@click.argument('input_path', type=click.Path(exists=True))
+@click.argument("input_path", type=click.Path(exists=True))
 def main(input_path):
     """ AOC Day 1 Main """
     data = parse_input(input_path)
