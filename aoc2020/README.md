@@ -9,7 +9,7 @@ The project uses poetry as a package manager.
 `poetry install`
 
 ### Run the daily challenges
-`poetry run day<number> --input-path ./data/day<number>/input.txt`
+`poetry run day<number> ./data/day<number>/input.txt`
 
 ### Run the tests
 `poetry run pytest`
