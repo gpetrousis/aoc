@@ -11,6 +11,8 @@ keywords = ["aoc", "adventofcode"]
 
 [tool.poetry.scripts]
 day1 = "aoc2020.day_1:main"
+day2 = "aoc2020.day_2:main"
+day3 = "aoc2020.day_3:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -18,6 +20,7 @@ click = "^7.1.2"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.1.2"
+pylint = "^2.6.0"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
