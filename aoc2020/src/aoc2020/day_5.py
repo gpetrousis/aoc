@@ -22,10 +22,22 @@ def parse_code(code, low, high):
         return parse_code(code[1:], low + int((high - low) / 2) + 1, high)
 
 
+def parse_code_binary(code):
+    """Parse seat code"""
+    binary = ""
+    for letter in code:
+        if letter == "F" or letter == "L":
+            binary += "0"
+
+        if letter == "B" or letter == "R":
+            binary += "1"
+
+    return int(binary, 2)
+
 def parse_seat(seat):
     """Parse seat into row and column"""
-    row = parse_code(seat[:7], 0, 127)
-    column = parse_code(seat[7:], 0, 7)
+    row = parse_code_binary(seat[:7])
+    column = parse_code_binary(seat[7:])
 
     return [row, column]
 

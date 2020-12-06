@@ -20,6 +20,12 @@ def test_parse_code():
     assert day_5.parse_code("RLR", 0, 7) == 5
 
 
+def test_parse_code_binary():
+    """ Test parse_code function """
+    assert day_5.parse_code_binary("FBFBBFF") == 44
+    assert day_5.parse_code_binary("RLR") == 5
+
+
 def test_parse_seat():
     """ Test parse_seat function """
     assert day_5.parse_seat(data[0]) == [70, 7]
