@@ -1,6 +1,5 @@
 """ Day 4 Unit test """
 
-# import click.testing
 from aoc2020 import day_4
 
 data = [
@@ -167,7 +166,7 @@ def test_validators():
 
 
 def test_is_valid_passport_strict():
-    """ Test is_valis_passport function """
+    """ Test is_valid_passport function """
     for passport in invalid_passports:
         assert not day_4.is_valid_passport_strict(passport)
 

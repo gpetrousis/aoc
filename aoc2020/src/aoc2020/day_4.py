@@ -1,7 +1,6 @@
 """ AOC Day 4 """
 import os
 import re
-from functools import reduce
 import click
 
 
@@ -31,7 +30,7 @@ validators = {
     "hcl": lambda x: re.search(r"^#[0-9,a-f]{6}$", x) is not None,
     "ecl": lambda x: re.search(r"^(amb|blu|brn|gry|grn|hzl|oth)$", x) is not None,
     "pid": lambda x: re.search(r"^\d{9}$", x) is not None,
-    "cid": lambda x: True
+    "cid": lambda x: True,
 }
 
 
@@ -65,7 +64,7 @@ def is_valid_passport(passport):
 def is_valid_passport_strict(passport):
     """Check if all the necessary fields of the passport exist and are valid"""
     for key in valid_fields:
-        if not key in passport or not validators[key](passport[key]):
+        if key not in passport or not validators[key](passport[key]):
             return False
 
     return True
@@ -84,7 +83,7 @@ def count_valid_passports(passports, validator):
 @click.command()
 @click.argument("input_path", type=click.Path(exists=True))
 def main(input_path):
-    """ AOC Day 3 Main """
+    """ AOC Day 4 Main """
     passports = parse_input(input_path)
 
     click.echo(count_valid_passports(passports, is_valid_passport))

@@ -1,6 +1,5 @@
 """ Day 1 Unit test """
 
-# import click.testing
 from aoc2020 import day_1
 
 data = [1721, 979, 366, 299, 675, 1456]
