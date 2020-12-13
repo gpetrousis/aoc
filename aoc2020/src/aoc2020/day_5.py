@@ -52,12 +52,12 @@ def get_seat_id(seat):
 
 def get_max_seat_id(seats):
     """Get the max seat id"""
-    return max(map(lambda x: get_seat_id(x), seats))
+    return max(map(get_seat_id, seats))
 
 
 def find_my_seat(seats):
     """Find the missing seat"""
-    seat_ids = map(lambda x: get_seat_id(x), seats)
+    seat_ids = map(get_seat_id, seats)
     sorted_seats = sorted(seat_ids)
 
     for i in range(len(sorted_seats)):
