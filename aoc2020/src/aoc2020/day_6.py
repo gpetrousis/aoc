@@ -1,6 +1,5 @@
 """ AOC Day 6 """
 import os
-from functools import reduce
 import click
 
 

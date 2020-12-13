@@ -16,7 +16,9 @@ def parse_input(input_path):
 
 
 def run_commands(commands):
-    """Run the given commands and return if the execution was successful and the accumulator"""
+    """Run the given commands and return if the
+    execution was successful and the accumulator
+    """
     acc = 0
     index = 0
 
