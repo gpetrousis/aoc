@@ -34,6 +34,7 @@ def parse_code_binary(code):
 
     return int(binary, 2)
 
+
 def parse_seat(seat):
     """Parse seat into row and column"""
     row = parse_code_binary(seat[:7])
