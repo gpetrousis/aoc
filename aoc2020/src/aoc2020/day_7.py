@@ -81,7 +81,7 @@ def count_bags(bags, color):
     count = 0
     for parent in bags.keys():
         if bag_contains(bags, parent, color):
-            count = count + 1
+            count += 1
 
     return count
 

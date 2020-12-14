@@ -66,7 +66,7 @@ def count_valid_passwords(password_list, validator):
     for line in password_list:
         [policy, password] = parse_line(line)
         if validator(policy, password):
-            count = count + 1
+            count += 1
 
     return count
 

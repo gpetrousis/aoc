@@ -33,14 +33,14 @@ def run_commands(commands):
         executed_commands.add(index)
         (opperator, argument) = commands[index]
         if opperator == "nop":
-            index = index + 1
+            index += 1
 
         elif opperator == "acc":
-            acc = acc + argument
-            index = index + 1
+            acc += argument
+            index += 1
 
         elif opperator == "jmp":
-            index = index + argument
+            index += argument
 
     return (done, acc)
 

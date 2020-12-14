@@ -20,6 +20,7 @@ day7 = "aoc2020.day_7:main"
 day8 = "aoc2020.day_8:main"
 day9 = "aoc2020.day_9:main"
 day10 = "aoc2020.day_10:main"
+day11 = "aoc2020.day_11:main"
 
 [tool.poetry.dependencies]
 python = "^3.8"

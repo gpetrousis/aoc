@@ -60,11 +60,11 @@ def find_my_seat(seats):
     seat_ids = map(get_seat_id, seats)
     sorted_seats = sorted(seat_ids)
 
-    for i in range(len(sorted_seats)):
+    for (i, _) in enumerate(sorted_seats):
         if sorted_seats[i + 1] == sorted_seats[i] + 2:
             return sorted_seats[i] + 1
 
-    return -1
+    return None
 
 
 @click.command()

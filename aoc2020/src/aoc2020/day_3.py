@@ -28,10 +28,10 @@ def traverse_area(area, step_x, step_y):
     tree_count = 0
     while pos_y < len(area):
         if area[pos_y][pos_x] == "#":
-            tree_count = tree_count + 1
+            tree_count += 1
 
         pos_x = (pos_x + step_x) % max_x
-        pos_y = pos_y + step_y
+        pos_y += step_y
 
     return tree_count
 

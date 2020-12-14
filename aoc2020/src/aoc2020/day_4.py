@@ -23,9 +23,9 @@ def is_valid_height(height):
 valid_fields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
 
 validators = {
-    "byr": lambda x: len(x) == 4 and int(x) >= 1920 and int(x) <= 2002,
-    "iyr": lambda x: len(x) == 4 and int(x) >= 2010 and int(x) <= 2020,
-    "eyr": lambda x: len(x) == 4 and int(x) >= 2020 and int(x) <= 2030,
+    "byr": lambda x: len(x) == 4 and 1920 <= int(x) <= 2002,
+    "iyr": lambda x: len(x) == 4 and 2010 <= int(x) <= 2020,
+    "eyr": lambda x: len(x) == 4 and 2020 <= int(x) <= 2030,
     "hgt": is_valid_height,
     "hcl": lambda x: re.search(r"^#[0-9,a-f]{6}$", x) is not None,
     "ecl": lambda x: re.search(r"^(amb|blu|brn|gry|grn|hzl|oth)$", x) is not None,
@@ -75,7 +75,7 @@ def count_valid_passports(passports, validator):
     count = 0
     for passport in passports:
         if validator(passport):
-            count = count + 1
+            count += 1
 
     return count
 

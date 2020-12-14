@@ -57,6 +57,3 @@ def main(input_path):
     click.echo(get_joltage_difference(jolts))
     click.echo(get_joltage_arrangements(jolts))
 
-
-if __name__ == "__main__":
-    main()
