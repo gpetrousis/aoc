@@ -1,7 +1,8 @@
-""" AOC Day 8 """
+""" Day 8: Handheld Halting """
 import os
 import copy
 import click
+from aoc2020.timer import timer
 
 
 def parse_input(input_path):
@@ -67,10 +68,25 @@ def fix_commands(commands):
     return None
 
 
+@timer
+def part_1(commands):
+    """ Solve part 1 """
+    (_, result) = run_commands(commands)
+    return result
+
+
+@timer
+def part_2(commands):
+    """ Solve part 2 """
+    return fix_commands(commands)
+
+
 @click.command()
 @click.argument("input_path", type=click.Path(exists=True))
 def main(input_path):
     """ AOC Day 8 Main """
     commands = parse_input(input_path)
-    click.echo(run_commands(commands))
-    click.echo(fix_commands(commands))
+
+    click.echo("Day 8: Handheld Halting")
+    click.echo(f"Part 1: {part_1(commands)}")
+    click.echo(f"Part 2: {part_2(commands)}")

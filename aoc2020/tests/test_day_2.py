@@ -25,16 +25,16 @@ def test_parse_policy():
     assert day_2.parse_policy(policy) == [1, 3, "a"]
 
 
-def test_is_valid_limits():
+def test_is_within_limits():
     """ Test is_valit_limits function """
     [policy, password] = day_2.parse_line(data[0])
-    assert day_2.is_valid_limits(policy, password)
+    assert day_2.is_within_limits(policy, password)
 
     [policy, password] = day_2.parse_line(data[1])
-    assert not day_2.is_valid_limits(policy, password)
+    assert not day_2.is_within_limits(policy, password)
 
     [policy, password] = day_2.parse_line(data[2])
-    assert day_2.is_valid_limits(policy, password)
+    assert day_2.is_within_limits(policy, password)
 
 
 def test_is_valid_possition():
@@ -51,5 +51,5 @@ def test_is_valid_possition():
 
 def test_count_valid_passwords():
     """ Test count_valid_passwords """
-    assert day_2.count_valid_passwords(data, day_2.is_valid_limits) == 2
-    assert day_2.count_valid_passwords(data, day_2.is_valid_possition) == 1
+    assert day_2.count_valid_passwords.__wrapped__(data, day_2.is_within_limits) == 2
+    assert day_2.count_valid_passwords.__wrapped__(data, day_2.is_valid_possition) == 1

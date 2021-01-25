@@ -13,9 +13,9 @@ def test_parse_input():
 
 def test_get_sum_two():
     """ Test get_sum_two function """
-    assert day_1.get_sum_two(sorted_data, 2020) == 514579
+    assert day_1.get_sum_two.__wrapped__(sorted_data, 2020) == 514579
 
 
 def test_get_sum_three():
     """ Test get_sum_three function """
-    assert day_1.get_sum_three(sorted_data, 2020) == 241861950
+    assert day_1.get_sum_three.__wrapped__(sorted_data, 2020) == 241861950

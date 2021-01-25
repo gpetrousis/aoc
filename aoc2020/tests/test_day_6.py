@@ -39,5 +39,5 @@ def test_get_common_group_answers():
 
 def test_count_answers():
     """ Test count_all_answers function """
-    assert day_6.count_answers(data, day_6.get_group_answers) == 11
-    assert day_6.count_answers(data, day_6.get_common_group_answers) == 6
+    assert day_6.count_answers.__wrapped__(data, day_6.get_group_answers) == 11
+    assert day_6.count_answers.__wrapped__(data, day_6.get_common_group_answers) == 6

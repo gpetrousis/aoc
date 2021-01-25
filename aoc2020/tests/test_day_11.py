@@ -222,8 +222,7 @@ def test_count_seats():
     assert day_11.count_seats(case_2, 3, 4, True) == 8
 
 
-
 def test_play():
     """ Test play function """
-    assert day_11.play(area, 4) == 37
-    assert day_11.play(area, 5, True) == 26
+    assert day_11.play.__wrapped__(area, 4) == 37
+    assert day_11.play.__wrapped__(area, 5, True) == 26

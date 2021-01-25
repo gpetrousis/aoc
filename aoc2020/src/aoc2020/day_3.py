@@ -1,7 +1,8 @@
-""" AOC Day 3 """
+""" Day 3: Toboggan Trajectory """
 import os
 from functools import reduce
 import click
+from aoc2020.timer import timer
 
 
 def parse_input(input_path):
@@ -36,12 +37,15 @@ def traverse_area(area, step_x, step_y):
     return tree_count
 
 
-@click.command()
-@click.argument("input_path", type=click.Path(exists=True))
-def main(input_path):
-    """ AOC Day 3 Main """
-    area = parse_input(input_path)
+@timer
+def part_1(area):
+    """ Solve part 1 """
+    return traverse_area(area, 3, 1)
 
+
+@timer
+def part_2(area):
+    """ Solve part 2 """
     results = [
         traverse_area(area, 1, 1),
         traverse_area(area, 3, 1),
@@ -49,6 +53,16 @@ def main(input_path):
         traverse_area(area, 7, 1),
         traverse_area(area, 1, 2),
     ]
-    click.echo(results[1])
 
-    click.echo(reduce((lambda x, y: x * y), results))
+    return reduce((lambda x, y: x * y), results)
+
+
+@click.command()
+@click.argument("input_path", type=click.Path(exists=True))
+def main(input_path):
+    """ Main function """
+    area = parse_input(input_path)
+
+    click.echo("Day 3: Toboggan Trajectory")
+    click.echo(f"Part 1: {part_1(area)}")
+    click.echo(f"Part 2: {part_2(area)}")

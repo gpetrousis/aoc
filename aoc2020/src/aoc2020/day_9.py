@@ -1,6 +1,7 @@
-""" AOC Day 9 """
+""" Day 9: Encoding Error """
 import os
 import click
+from aoc2020.timer import timer
 
 
 def parse_input(input_path):
@@ -58,12 +59,26 @@ def find_weekness(data, invalid):
     return None
 
 
+@timer
+def part_1(numbers, preamble):
+    """ Solve part 1 """
+    return find_invalid_number(numbers, preamble)
+
+
+@timer
+def part_2(numbers, preamble):
+    """ Solve part 2 """
+    invalid = find_invalid_number(numbers, preamble)
+    return find_weekness(numbers, invalid)
+
+
 @click.command()
 @click.argument("input_path", type=click.Path(exists=True))
 @click.option("--preamble", default=25, help="Preamble number.")
 def main(input_path, preamble):
     """ AOC Day 9 Main """
     numbers = parse_input(input_path)
-    invalid = find_invalid_number(numbers, preamble)
-    click.echo(invalid)
-    click.echo(find_weekness(numbers, invalid))
+
+    click.echo("Day 9: Encoding Error")
+    click.echo(f"Part 1: {part_1(numbers, preamble)}")
+    click.echo(f"Part 2: {part_2(numbers, preamble)}")

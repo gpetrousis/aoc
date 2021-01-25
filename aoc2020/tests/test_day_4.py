@@ -139,7 +139,7 @@ def test_is_valid_passport():
 
 def test_count_valid_passports():
     """ Test count_valid_passports function """
-    assert day_4.count_valid_passports(data, day_4.is_valid_passport) == 2
+    assert day_4.count_valid_passports.__wrapped__(data, day_4.is_valid_passport) == 2
 
 
 def test_validators():

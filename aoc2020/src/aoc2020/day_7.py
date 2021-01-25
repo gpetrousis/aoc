@@ -1,7 +1,8 @@
-""" AOC Day 7 """
+""" Day 7: Handy Haversacks """
 import os
 import re
 import click
+from aoc2020.timer import timer
 
 
 def parse_bag_contents(contents):
@@ -71,7 +72,7 @@ def count_bag_contents(bags, parent):
     for key in keys:
         key_count = contents[key]
         result = count_bag_contents(bags, key)
-        count = count + key_count + (key_count * result)
+        count += key_count + (key_count * result)
 
     return count
 
@@ -86,10 +87,24 @@ def count_bags(bags, color):
     return count
 
 
+@timer
+def part_1(bags):
+    """ Solve part 1 """
+    return count_bags(bags, "shiny gold")
+
+
+@timer
+def part_2(bags):
+    """ Solve part 2 """
+    return count_bag_contents(bags, "shiny gold")
+
+
 @click.command()
 @click.argument("input_path", type=click.Path(exists=True))
 def main(input_path):
     """ AOC Day 7 Main """
     bags = parse_input(input_path)
-    click.echo(count_bags(bags, "shiny gold"))
-    click.echo(count_bag_contents(bags, "shiny gold"))
+
+    click.echo("Day 7: Handy Haversacks")
+    click.echo(f"Part 1: {part_1(bags)}")
+    click.echo(f"Part 2: {part_2(bags)}")

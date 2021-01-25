@@ -1,7 +1,8 @@
-""" AOC Day 11 """
+""" Day 11: Seating System """
 import os
 from copy import deepcopy
 import click
+from aoc2020.timer import timer
 
 
 OFFSETS = [
@@ -26,7 +27,7 @@ def parse_input(input_path):
     return area
 
 
-def count_seats(area, x, y, deep = False):
+def count_seats(area, x, y, deep=False):
     """Count the taken seats around the current seat"""
     rows = len(area)
     columns = len(area[0])
@@ -52,7 +53,7 @@ def count_seats(area, x, y, deep = False):
     return acc
 
 
-def step(area, limit, deep = False):
+def step(area, limit, deep=False):
     """Play a round of seat taking"""
     new_area = deepcopy(area)
 
@@ -67,7 +68,8 @@ def step(area, limit, deep = False):
     return new_area
 
 
-def play(area, limit, deep = False):
+@timer
+def play(area, limit, deep=False):
     """Play the seats game and return the number of occupied seats"""
     current_area = area
     while True:
@@ -86,6 +88,6 @@ def main(input_path):
     """ AOC Day 11 Main """
     area = parse_input(input_path)
 
-    click.echo(play(area, 4, False))
-    click.echo(play(area, 5, True))
-
+    click.echo("Day 11: Seating System")
+    click.echo(f"Part 1: {play(area, 4, False)}")
+    click.echo(f"Part 1: {play(area, 5, True)}")

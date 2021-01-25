@@ -58,11 +58,11 @@ def test_parse_input():
 
 def test_get_joltage_difference():
     """ Test get_joltage_difference function """
-    assert day_10.get_joltage_difference(small_input) == 35
-    assert day_10.get_joltage_difference(parsed_input) == 220
+    assert day_10.get_joltage_difference.__wrapped__(small_input) == 35
+    assert day_10.get_joltage_difference.__wrapped__(parsed_input) == 220
 
 
 def test_get_joltage_arrangements():
     """ Test get_joltage_arrangements function """
-    assert day_10.get_joltage_arrangements(small_input) == 8
-    assert day_10.get_joltage_arrangements(parsed_input) == 19208
+    assert day_10.get_joltage_arrangements.__wrapped__(small_input) == 8
+    assert day_10.get_joltage_arrangements.__wrapped__(parsed_input) == 19208

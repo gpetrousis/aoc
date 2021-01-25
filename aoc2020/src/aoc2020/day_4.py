@@ -1,10 +1,12 @@
-""" AOC Day 4 """
+""" Day 4: Passport Processing """
 import os
 import re
 import click
+from aoc2020.timer import timer
 
 
 def is_valid_height(height):
+    """ Check if the height is within limits """
     pattern = re.compile(r"^(\d*)(cm|in)$")
     match = re.match(pattern, height)
     if not match:
@@ -30,7 +32,6 @@ validators = {
     "hcl": lambda x: re.search(r"^#[0-9,a-f]{6}$", x) is not None,
     "ecl": lambda x: re.search(r"^(amb|blu|brn|gry|grn|hzl|oth)$", x) is not None,
     "pid": lambda x: re.search(r"^\d{9}$", x) is not None,
-    "cid": lambda x: True,
 }
 
 
@@ -70,6 +71,7 @@ def is_valid_passport_strict(passport):
     return True
 
 
+@timer
 def count_valid_passports(passports, validator):
     """Count all the valid passports"""
     count = 0
@@ -83,8 +85,9 @@ def count_valid_passports(passports, validator):
 @click.command()
 @click.argument("input_path", type=click.Path(exists=True))
 def main(input_path):
-    """ AOC Day 4 Main """
+    """ Main Function """
     passports = parse_input(input_path)
 
-    click.echo(count_valid_passports(passports, is_valid_passport))
-    click.echo(count_valid_passports(passports, is_valid_passport_strict))
+    click.echo("Day 4: Passport Processing")
+    click.echo(f"Part 1: {count_valid_passports(passports, is_valid_passport)}")
+    click.echo(f"Part 2: {count_valid_passports(passports, is_valid_passport_strict)}")

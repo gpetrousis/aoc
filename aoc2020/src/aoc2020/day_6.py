@@ -1,6 +1,7 @@
-""" AOC Day 6 """
+""" Day 6: Custom Customs """
 import os
 import click
+from aoc2020.timer import timer
 
 
 def parse_input(input_path):
@@ -40,6 +41,7 @@ def get_common_group_answers(group):
     return answers
 
 
+@timer
 def count_answers(groups, get_answers):
     """Count the answers from all the groups"""
     return sum(map(lambda x: len(get_answers(x)), groups))
@@ -51,5 +53,6 @@ def main(input_path):
     """ AOC Day 6 Main """
     groups = parse_input(input_path)
 
-    click.echo(count_answers(groups, get_group_answers))
-    click.echo(count_answers(groups, get_common_group_answers))
+    click.echo("Day 6: Custom Customs")
+    click.echo(f"Part 1: {count_answers(groups, get_group_answers)}")
+    click.echo(f"Part 2: {count_answers(groups, get_common_group_answers)}")

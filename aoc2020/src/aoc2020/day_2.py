@@ -1,7 +1,8 @@
-""" AOC Day 2 """
+""" Day 2: Password Philosophy """
 import os
 import re
 import click
+from aoc2020.timer import timer
 
 
 def parse_input(input_path):
@@ -31,7 +32,7 @@ def parse_policy(policy):
         return [int(match.group(1)), int(match.group(2)), match.group(3)]
 
 
-def is_valid_limits(policy, password):
+def is_within_limits(policy, password):
     """
     Validate if a password is valid based on the
     policy low_limit <= count(letter) <= high_limit
@@ -40,7 +41,7 @@ def is_valid_limits(policy, password):
 
     count = password.count(letter)
 
-    return count >= low and count <= high
+    return low <= count <= high
 
 
 def is_valid_possition(policy, password):
@@ -57,6 +58,7 @@ def is_valid_possition(policy, password):
     return exist_pos1 != exist_pos2
 
 
+@timer
 def count_valid_passwords(password_list, validator):
     """
     Count how many valid passwords exist in the input
@@ -74,8 +76,9 @@ def count_valid_passwords(password_list, validator):
 @click.command()
 @click.argument("input_path", type=click.Path(exists=True))
 def main(input_path):
-    """ AOC Day 2 Main """
+    """ Main function """
     input_data = parse_input(input_path)
 
-    click.echo(count_valid_passwords(input_data, is_valid_limits))
-    click.echo(count_valid_passwords(input_data, is_valid_possition))
+    click.echo("Day 2: Password Philosophy")
+    click.echo(f"Part 1: {count_valid_passwords(input_data, is_within_limits)}")
+    click.echo(f"Part 2: {count_valid_passwords(input_data, is_valid_possition)}")

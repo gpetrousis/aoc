@@ -1,6 +1,10 @@
-""" AOC Day 10 """
+""" Day 10: Adapter Array
+The solution based on
+https://hackernoon.com/google-interview-questions-deconstructed-the-knights-dialer-f780d516f029
+"""
 import os
 import click
+from aoc2020.timer import timer
 
 
 def parse_input(input_path):
@@ -13,6 +17,7 @@ def parse_input(input_path):
     return numbers
 
 
+@timer
 def get_joltage_difference(jolts):
     """Return the product of the 1-jolt and 3-jolt differences"""
     sorted_jolts = sorted(jolts)
@@ -24,7 +29,7 @@ def get_joltage_difference(jolts):
         jolt_diff = sorted_jolts[i + 1] - sorted_jolts[i] - 1
 
         if jolt_diff > 2:
-            click.echo("Jolt difference too big")
+            # Jolt difference too big
             return None
 
         diffs[jolt_diff] = diffs[jolt_diff] + 1
@@ -32,6 +37,7 @@ def get_joltage_difference(jolts):
     return diffs[0] * diffs[2]
 
 
+@timer
 def get_joltage_arrangements(jolts):
     """Return the number of distinct arrangements"""
     sorted_jolts = sorted(jolts)
@@ -54,6 +60,7 @@ def get_joltage_arrangements(jolts):
 def main(input_path):
     """ AOC Day 10 Main """
     jolts = parse_input(input_path)
-    click.echo(get_joltage_difference(jolts))
-    click.echo(get_joltage_arrangements(jolts))
 
+    click.echo("Day 10: Adapter Array")
+    click.echo(f"Part 1: {get_joltage_difference(jolts)}")
+    click.echo(f"Part 2: {get_joltage_arrangements(jolts)}")

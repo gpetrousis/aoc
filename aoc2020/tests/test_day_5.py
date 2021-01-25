@@ -42,4 +42,4 @@ def test_get_seat_id():
 
 def test_get_max_seat_id():
     """ Test get_max_seat_id function """
-    assert day_5.get_max_seat_id(data) == 820
+    assert day_5.get_max_seat_id.__wrapped__(data) == 820
