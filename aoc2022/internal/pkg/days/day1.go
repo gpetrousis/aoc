@@ -5,30 +5,6 @@ import (
 	"strconv"
 )
 
-func maxArray(data []int) (int, int) {
-	index := 0
-	max := data[0]
-	for i, value := range data {
-		if value > max {
-			max = value
-			index = i
-		}
-	}
-	return index, max
-}
-
-func sumTopThree(data []int) (int, int) {
-	index := 0
-	max := data[0]
-	for i, value := range data {
-		if value > max {
-			max = value
-			index = i
-		}
-	}
-	return index, max
-}
-
 func getCalories(data []string) []int {
 	var calories []int
 	sum := 0
@@ -47,7 +23,6 @@ func getCalories(data []string) []int {
 		sum += intVar
 	}
 	calories = append(calories, sum)
-
 	return calories
 }
 
@@ -69,6 +44,6 @@ func Day1Part2(data []string) string {
 	for _, val := range calories[len-3:] {
 		sum += val
 	}
-	// Placeholder
+
 	return strconv.Itoa(sum)
 }

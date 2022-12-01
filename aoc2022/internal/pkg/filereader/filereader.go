@@ -1,7 +1,7 @@
 package filereader
 
 import (
-	"io/ioutil"
+	"os"
 	"strconv"
 	"strings"
 )
@@ -41,7 +41,7 @@ func (f filereader) ToStrArray() []string {
 }
 
 func readFile(inputFile string) (string, error) {
-	data, err := ioutil.ReadFile(inputFile)
+	data, err := os.ReadFile(inputFile)
 	if err != nil {
 		return "", err
 	}
