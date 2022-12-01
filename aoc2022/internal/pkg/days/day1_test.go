@@ -13,12 +13,35 @@ func TestDay1Part1(t *testing.T) {
 		args args
 		want string
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Test Input",
+			args: args{
+				data: []string{
+					"1000",
+					"2000",
+					"3000",
+					"",
+					"4000",
+					"",
+					"5000",
+					"6000",
+					"",
+					"7000",
+					"8000",
+					"9000",
+					"",
+					"10000",
+				},
+			},
+			want: "24000",
+		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Day1Part1(tt.args.data); got != tt.want {
-				t.Errorf("Day1Part1() = %v, want %v", got, tt.want)
+		testCase := tt
+		t.Run(testCase.name, func(t *testing.T) {
+			t.Parallel()
+			if got := Day1Part1(testCase.args.data); got != testCase.want {
+				t.Errorf("Day1Part1() = %v, want %v", got, testCase.want)
 			}
 		})
 	}
@@ -33,12 +56,35 @@ func TestDay1Part2(t *testing.T) {
 		args args
 		want string
 	}{
-		// TODO: Add test cases.
+		{
+			name: "Test Input",
+			args: args{
+				data: []string{
+					"1000",
+					"2000",
+					"3000",
+					"",
+					"4000",
+					"",
+					"5000",
+					"6000",
+					"",
+					"7000",
+					"8000",
+					"9000",
+					"",
+					"10000",
+				},
+			},
+			want: "45000",
+		},
 	}
 	for _, tt := range tests {
-		t.Run(tt.name, func(t *testing.T) {
-			if got := Day1Part2(tt.args.data); got != tt.want {
-				t.Errorf("Day1Part2() = %v, want %v", got, tt.want)
+		testCase := tt
+		t.Run(testCase.name, func(t *testing.T) {
+			t.Parallel()
+			if got := Day1Part2(testCase.args.data); got != testCase.want {
+				t.Errorf("Day1Part2() = %v, want %v", got, testCase.want)
 			}
 		})
 	}
