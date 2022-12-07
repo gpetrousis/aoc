@@ -26,15 +26,16 @@ func RootCmd() *cobra.Command {
 	_ = cmd.MarkFlagRequired("input")
 
 	for day, runnerFunction := range days {
-		cmd.AddCommand(
-			&cobra.Command{
-				Use:   day,
-				Short: fmt.Sprintf("aoc2022 %s", day),
-				Run: func(cmd *cobra.Command, args []string) {
-					runnerFunction(inputFile)
-				},
+		localDay := day
+		localRunner := runnerFunction
+		dayCmd := &cobra.Command{
+			Use:   localDay,
+			Short: fmt.Sprintf("aoc2022 %s", day),
+			Run: func(cmd *cobra.Command, args []string) {
+				localRunner(inputFile)
 			},
-		)
+		}
+		cmd.AddCommand(dayCmd)
 	}
 
 	return cmd
