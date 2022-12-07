@@ -14,6 +14,12 @@ var (
 func RootCmd() *cobra.Command {
 	days := map[string]func(inputFile string){
 		"day1": runner.Day1Runner,
+		"day2": runner.Day2Runner,
+		"day3": runner.Day3Runner,
+		"day4": runner.Day4Runner,
+		"day5": runner.Day5Runner,
+		"day6": runner.Day6Runner,
+		"day7": runner.Day7Runner,
 	}
 
 	cmd := &cobra.Command{
