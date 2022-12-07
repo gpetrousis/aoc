@@ -7,26 +7,33 @@ import (
 )
 
 type filereader struct {
-	data []string
+	data string
 }
 
-func NewFileReader(inputFile string, delimieter string) *filereader {
+func NewFileReader(inputFile string) *filereader {
 	data, err := readFile(inputFile)
 	if err != nil {
 		panic(err)
 	}
 
-	dataArray := strings.Split(data, delimieter)
-	fr := filereader{data: dataArray}
+	fr := filereader{data: data}
 
 	return &fr
 }
 
-func (f filereader) ToIntArray() []int {
+func (f *filereader) GetData() string {
+	return f.data
+}
+
+func (f *filereader) ToIntArray(delimieter rune) []int {
 	intArray := []int{}
 
 	for _, str := range f.data {
-		intVal, err := strconv.Atoi(str)
+		if str == delimieter {
+			continue
+		}
+
+		intVal, err := strconv.Atoi(string(str))
 		if err != nil {
 			panic(err)
 		}
@@ -36,8 +43,9 @@ func (f filereader) ToIntArray() []int {
 	return intArray
 }
 
-func (f filereader) ToStrArray() []string {
-	return f.data
+func (f *filereader) ToStrArray(delimieter string) []string {
+	dataArray := strings.Split(f.data, delimieter)
+	return dataArray
 }
 
 func readFile(inputFile string) (string, error) {
