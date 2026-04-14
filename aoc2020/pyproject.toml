@@ -42,7 +42,7 @@ click = "^8.1.7"
 
 [tool.poetry.group.dev.dependencies]
 black = "^26.3.1"
-pytest = "^7.2.0"
+pytest = ">=7.2,<10.0"
 pylint = "^3.2.0"
 coverage = {version = "^7.5", extras = ["toml"]}
 pytest-cov = "^5.0.0"
